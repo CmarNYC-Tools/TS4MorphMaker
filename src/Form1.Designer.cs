@@ -63,6 +63,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.DMapInfant_checkBox = new System.Windows.Forms.CheckBox();
             this.DMapLittleDog_radioButton = new System.Windows.Forms.RadioButton();
+            this.DMapHorse_radioButton = new System.Windows.Forms.RadioButton();
             this.DMapDog_radioButton = new System.Windows.Forms.RadioButton();
             this.DMapCat_radioButton = new System.Windows.Forms.RadioButton();
             this.DmapHuman_RadioButton = new System.Windows.Forms.RadioButton();
@@ -646,7 +647,8 @@
             "Dog",
             "Cat",
             "Little Dog",
-            "Werewolf"});
+            "Werewolf",
+            "Horse"});
             this.ExportBodySpecies_listBox.Location = new System.Drawing.Point(94, 19);
             this.ExportBodySpecies_listBox.Name = "ExportBodySpecies_listBox";
             this.ExportBodySpecies_listBox.Size = new System.Drawing.Size(160, 82);
@@ -805,6 +807,7 @@
             this.panel2.Controls.Add(this.DMapLittleDog_radioButton);
             this.panel2.Controls.Add(this.DMapDog_radioButton);
             this.panel2.Controls.Add(this.DMapCat_radioButton);
+            this.panel2.Controls.Add(this.DMapHorse_radioButton);
             this.panel2.Controls.Add(this.DmapHuman_RadioButton);
             this.panel2.Controls.Add(this.DMapFemale_checkBox);
             this.panel2.Controls.Add(this.DMapMale_checkBox);
@@ -813,7 +816,7 @@
             this.panel2.Controls.Add(this.DMapToddler_checkBox);
             this.panel2.Location = new System.Drawing.Point(125, 166);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(295, 103);
+            this.panel2.Size = new System.Drawing.Size(295, 113);
             this.panel2.TabIndex = 19;
             // 
             // DMapInfant_checkBox
@@ -836,6 +839,17 @@
             this.DMapLittleDog_radioButton.Text = "Little Dog";
             this.DMapLittleDog_radioButton.UseVisualStyleBackColor = true;
             this.DMapLittleDog_radioButton.CheckedChanged += new System.EventHandler(this.DMapLittleDog_radioButton_CheckedChanged);
+             // 
+            // DMapHorse_radioButton
+            // 
+            this.DMapHorse_radioButton.AutoSize = true;
+            this.DMapHorse_radioButton.Location = new System.Drawing.Point(3, 71+22);
+            this.DMapHorse_radioButton.Name = "DMapHorse_radioButton";
+            this.DMapHorse_radioButton.Size = new System.Drawing.Size(80, 17);
+            this.DMapHorse_radioButton.TabIndex = 6;
+            this.DMapHorse_radioButton.Text = "Horse";
+            this.DMapHorse_radioButton.UseVisualStyleBackColor = true;
+            this.DMapHorse_radioButton.CheckedChanged += new System.EventHandler(this.DMapHorse_radioButton_CheckedChanged);
             // 
             // DMapDog_radioButton
             // 
@@ -2315,7 +2329,8 @@
             "Dog",
             "Cat",
             "Little Dog",
-            "Werewolf"});
+            "Werewolf",
+            "Horse"});
             this.PreviewSpecies_listBox.Location = new System.Drawing.Point(0, 19);
             this.PreviewSpecies_listBox.Name = "PreviewSpecies_listBox";
             this.PreviewSpecies_listBox.Size = new System.Drawing.Size(100, 82);
@@ -2669,7 +2684,7 @@
             this.EditHOTC_panel.Controls.Add(this.label39);
             this.EditHOTC_panel.Controls.Add(this.EditHOTC_name);
             this.EditHOTC_panel.Enabled = false;
-            this.EditHOTC_panel.Location = new System.Drawing.Point(340, 5);
+            this.EditHOTC_panel.Location = new System.Drawing.Point(365, 5);
             this.EditHOTC_panel.Margin = new System.Windows.Forms.Padding(2);
             this.EditHOTC_panel.Name = "EditHOTC_panel";
             this.EditHOTC_panel.Size = new System.Drawing.Size(630, 496);
@@ -3408,7 +3423,8 @@
             "Human",
             "Dog",
             "Cat",
-            "Little Dog"});
+            "Little Dog",
+            "Horse"});
             this.EditPreset_Species_comboBox.Location = new System.Drawing.Point(81, 30);
             this.EditPreset_Species_comboBox.Name = "EditPreset_Species_comboBox";
             this.EditPreset_Species_comboBox.Size = new System.Drawing.Size(127, 21);
@@ -5174,7 +5190,7 @@
             this.HotSpotSearchCD_radioButton.Name = "HotSpotSearchCD_radioButton";
             this.HotSpotSearchCD_radioButton.Size = new System.Drawing.Size(95, 17);
             this.HotSpotSearchCD_radioButton.TabIndex = 1;
-            this.HotSpotSearchCD_radioButton.Text = "Cats and Dogs";
+            this.HotSpotSearchCD_radioButton.Text = "Animals";
             this.HotSpotSearchCD_radioButton.UseVisualStyleBackColor = true;
             // 
             // HotSpotSearchHuman_radioButton
@@ -5332,7 +5348,7 @@
             this.PresetSearchCD_radioButton.Name = "PresetSearchCD_radioButton";
             this.PresetSearchCD_radioButton.Size = new System.Drawing.Size(95, 17);
             this.PresetSearchCD_radioButton.TabIndex = 1;
-            this.PresetSearchCD_radioButton.Text = "Cats and Dogs";
+            this.PresetSearchCD_radioButton.Text = "Animals";
             this.PresetSearchCD_radioButton.UseVisualStyleBackColor = true;
             // 
             // PresetSearchHuman_radioButton
@@ -5791,7 +5807,7 @@
             this.DMapSearchPets_radioButton.Size = new System.Drawing.Size(95, 17);
             this.DMapSearchPets_radioButton.TabIndex = 1;
             this.DMapSearchPets_radioButton.TabStop = true;
-            this.DMapSearchPets_radioButton.Text = "Cats and Dogs";
+            this.DMapSearchPets_radioButton.Text = "Animals";
             this.DMapSearchPets_radioButton.UseVisualStyleBackColor = true;
             // 
             // DMapSearchHuman_radioButton
@@ -6591,6 +6607,7 @@
         private System.Windows.Forms.RadioButton DmapHuman_RadioButton;
         private System.Windows.Forms.Label label90;
         private System.Windows.Forms.RadioButton DMapLittleDog_radioButton;
+        private System.Windows.Forms.RadioButton DMapHorse_radioButton;
         private System.Windows.Forms.RadioButton DMapDog_radioButton;
         private System.Windows.Forms.ComboBox SMODSubregion_comboBox;
         private System.Windows.Forms.Label label91;

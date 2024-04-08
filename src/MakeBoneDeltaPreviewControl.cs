@@ -73,7 +73,8 @@ namespace MorphTool
                 new AgeGenderSpecies(AgeGender.Toddler, AgeGender.Unisex, Species.Human), new AgeGenderSpecies(AgeGender.Infant, AgeGender.Unisex, Species.Human), 
                 new AgeGenderSpecies(AgeGender.Adult, AgeGender.Unisex, Species.Cat),
                 new AgeGenderSpecies(AgeGender.Adult, AgeGender.Unisex, Species.Dog), new AgeGenderSpecies(AgeGender.Adult, AgeGender.Unisex, Species.LittleDog),
-                new AgeGenderSpecies(AgeGender.Child, AgeGender.Unisex, Species.Cat), new AgeGenderSpecies(AgeGender.Child, AgeGender.Unisex, Species.Dog) };
+                new AgeGenderSpecies(AgeGender.Adult, AgeGender.Unisex, Species.Horse),
+                new AgeGenderSpecies(AgeGender.Child, AgeGender.Unisex, Species.Cat), new AgeGenderSpecies(AgeGender.Child, AgeGender.Unisex, Species.Dog), new AgeGenderSpecies(AgeGender.Child, AgeGender.Unisex, Species.Horse) };
             BONDmodel_comboBox.Items.AddRange(models);
             BONDmodel_comboBox.SelectedIndex = 1;
             BONDmodelEars_comboBox.Items.AddRange(new object[] { EarType.Up, EarType.Down });
@@ -136,17 +137,25 @@ namespace MorphTool
             {
                 bondHead = null;
                 bondBody = new GEOM(new BinaryReader(new MemoryStream((byte[])rm.GetObject(prefix + "BodyComplete_lod0"))));
-                BONDmodelEars_comboBox.Enabled = true;
+                if(bondSpecies != Species.Horse){
+                     BONDmodelEars_comboBox.Enabled = true;
+                     string earType = BONDmodelEars_comboBox.SelectedIndex == 0 ? "Ears" : "EarsDown";
+                     bondEars = new GEOM(new BinaryReader(new MemoryStream((byte[])rm.GetObject(prefix + earType + "_lod0"))));
+                }else{
+                    bondEars = null;
+                }
                 BONDmodelTail_comboBox.Items.Clear();
-                BONDmodelTail_comboBox.Items.AddRange(bondSpecies == Species.Cat ? new object[] { TailType.Long, TailType.Stub } :
+                BONDmodelTail_comboBox.Items.AddRange(
+                    bondSpecies == Species.Horse? new object[]{ TailType.Long}:
+                    bondSpecies == Species.Cat ? new object[] { TailType.Long, TailType.Stub } :
                                                         new object[] { TailType.Long, TailType.Stub, TailType.Ring, TailType.Screw });
                 if (BONDmodelTail_comboBox.SelectedIndex < 0 || BONDmodelTail_comboBox.SelectedIndex > BONDmodelTail_comboBox.Items.Count) BONDmodelTail_comboBox.SelectedIndex = 0;
                 BONDmodelTail_comboBox.Enabled = true;
-                string earType = BONDmodelEars_comboBox.SelectedIndex == 0 ? "Ears" : "EarsDown";
-                bondEars = new GEOM(new BinaryReader(new MemoryStream((byte[])rm.GetObject(prefix + earType + "_lod0"))));
-                string[] tailType = bondSpecies == Species.Cat ? new string[] { "Tail", "TailStub" } : new string[] { "Tail", "TailStub", "TailRing", "TailScrew" };
+
+                string[] tailType = bondSpecies == Species.Horse ? new string[] { "Tail" } : bondSpecies == Species.Cat ? new string[] { "Tail", "TailStub" } : new string[] { "Tail", "TailStub", "TailRing", "TailScrew" };
                 bondTail = new GEOM(new BinaryReader(new MemoryStream((byte[])rm.GetObject(prefix + tailType[BONDmodelTail_comboBox.SelectedIndex] + "_lod0"))));
-                bondSkin = bondSpecies == Species.Cat ? Properties.Resources.CatSkin : Properties.Resources.DogSkin;
+                bondSkin = bondSpecies == Species.Horse ?  Properties.Resources.HorseSkin :
+                    bondSpecies == Species.Cat ? Properties.Resources.CatSkin : Properties.Resources.DogSkin;
             }
 
             if (bondHead != null) bondHeadMorph = new GEOM(bondHead);
@@ -171,8 +180,10 @@ namespace MorphTool
         {
             if (bondSpecies == Species.Human) return;
             string prefix = GetBodyCompletePrefix(bondSpecies, bondAge, bondGender);
-            string earType = BONDmodelEars_comboBox.SelectedIndex == 0 ? "Ears" : "EarsDown";
-            bondEars = new GEOM(new BinaryReader(new MemoryStream((byte[])rm.GetObject(prefix + earType + "_lod0"))));
+            if(bondSpecies != Species.Horse){
+                string earType = BONDmodelEars_comboBox.SelectedIndex == 0 ? "Ears" : "EarsDown";
+                bondEars = new GEOM(new BinaryReader(new MemoryStream((byte[])rm.GetObject(prefix + earType + "_lod0"))));
+            }
             string[] tailType = new string[] { "Tail", "TailStub", "TailRing", "TailScrew" };
             bondTail = new GEOM(new BinaryReader(new MemoryStream((byte[])rm.GetObject(prefix + tailType[BONDmodelTail_comboBox.SelectedIndex] + "_lod0"))));
 

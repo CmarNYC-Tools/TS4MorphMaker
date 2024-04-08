@@ -92,7 +92,8 @@ namespace MorphTool
             }
             else
             {
-                if (species == Species.Cat)  groupnames = new string[] { prefix + "Body", "Ears", "EarsDown", "Tail", "TailStub" };
+                if (species == Species.Horse)  groupnames = new string[] { prefix + "Body", "Tail" };
+                else if (species == Species.Cat)  groupnames = new string[] { prefix + "Body", "Ears", "EarsDown", "Tail", "TailStub" };
                 else groupnames = new string[] { prefix + "Body", "Ears", "EarsDown", "Tail", "TailStub", "TailRing", "TailScrew" }; 
                 tmp = new GEOM[groupnames.Length];
                 tmp[0] = new GEOM(new BinaryReader(new MemoryStream((byte[])rm.GetObject(prefix + "BodyComplete_lod0"))));
@@ -163,6 +164,10 @@ namespace MorphTool
                 {
                     ExportBodyAgeGender_listBox.Items.AddRange(new string[] { "Adult Male", "Adult Female" });
                 }
+                else if (ExportBodySpecies_listBox.SelectedIndex == 5) // Horse
+                {
+                    ExportBodyAgeGender_listBox.Items.AddRange(new string[] { "Foal", "Adult" });
+                }
                 ExportBodyAgeGender_listBox.SelectedIndex = 1;
             }
         }
@@ -211,6 +216,10 @@ namespace MorphTool
         {
             Set_DMapSpecies();
         }
+        private void DMapHorse_radioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            Set_DMapSpecies();
+        }
         
         private void Set_DMapSpecies()
         {
@@ -229,6 +238,7 @@ namespace MorphTool
                 DMapMale_checkBox.Checked = true;
                 DMapFemale_checkBox.Checked = true;
                 if (DMapCat_radioButton.Checked) DMapChild_checkBox.Text = "Kitten";
+                else if (DMapHorse_radioButton.Checked) DMapChild_checkBox.Text = "Foal";
                 else DMapChild_checkBox.Text = "Puppy";
             }
         }
@@ -321,6 +331,7 @@ namespace MorphTool
             Species species = Species.Human;
             if (DMapDog_radioButton.Checked) species = Species.Dog;
             else if (DMapCat_radioButton.Checked) species = Species.Cat;
+            else if (DMapHorse_radioButton.Checked) species = Species.Horse;
             else if (DMapLittleDog_radioButton.Checked) species = Species.LittleDog;
             argList.Add(species);
 

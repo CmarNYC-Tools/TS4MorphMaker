@@ -741,10 +741,20 @@ namespace MorphTool
                 currentGender = AgeGender.Unisex;
                 PreviewAgeGender_listBox.Items.Clear();
                 PreviewType1_listBox.Items.Clear();
-                PreviewType1_listBox.Items.AddRange(new string[] { "Ears Up", "Ears Down" });
+                if (currentSpecies == Species.Horse)
+                {
+                    PreviewType1_listBox.Items.AddRange(new string[] { "Ears Up" });
+                }else{
+                    PreviewType1_listBox.Items.AddRange(new string[] { "Ears Up", "Ears Down" });
+                }
                 PreviewType1_listBox.SelectedIndex = 0;
                 PreviewType2_listBox.Items.Clear();
-                if (currentSpecies == Species.Cat)
+                if (currentSpecies == Species.Horse)
+                {
+                    PreviewType2_listBox.Items.AddRange(new string[] { "Tail" });
+                    PreviewAgeGender_listBox.Items.AddRange(new string[] { "Foal", "Adult" });
+                }
+                else if (currentSpecies == Species.Cat)
                 {
                     PreviewType2_listBox.Items.AddRange(new string[] { "Tail Long", "Tail Stub" });
                     PreviewAgeGender_listBox.Items.AddRange(new string[] { "Kitten", "Adult" });
@@ -952,6 +962,15 @@ namespace MorphTool
                     }
                 }
                 CurrentSkin = Properties.Resources.WerewolfSkin;
+            }
+            else if(currentSpecies == Species.Horse)
+            {
+                CurrentHead = null;
+                CurrentSkin = Properties.Resources.HorseSkin;
+                CurrentBody = new GEOM(new BinaryReader(new MemoryStream((byte[])rm.GetObject(prefix + "BodyComplete_lod0"))));     
+                CurrentEars = null;
+                string[] tailType = new string[] { "Tail" };
+                CurrentTail = new GEOM(new BinaryReader(new MemoryStream((byte[])rm.GetObject(prefix + tailType[PreviewType2_listBox.SelectedIndex] + "_lod0"))));
             }
             else
             {

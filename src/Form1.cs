@@ -54,8 +54,10 @@ namespace MorphTool
         static RIG adultCatRig;
         static RIG adultDogRig;
         static RIG adultLittleDogRig;
+        static RIG adultHorseRig;
         static RIG childCatRig;
         static RIG childDogRig;
+        static RIG childHorseRig;
         List<RIG> rigsList;
         string[] rigNames;
 
@@ -172,10 +174,12 @@ namespace MorphTool
             adultCatRig = GetTS4Rig(Species.Cat, AgeGender.Adult);
             adultDogRig = GetTS4Rig(Species.Dog, AgeGender.Adult);
             adultLittleDogRig = GetTS4Rig(Species.LittleDog, AgeGender.Adult);
+            adultHorseRig = GetTS4Rig(Species.Horse, AgeGender.Adult);
             childCatRig = GetTS4Rig(Species.Cat, AgeGender.Child);
             childDogRig = GetTS4Rig(Species.Dog, AgeGender.Child);
-            rigsList = new List<RIG> { adultRig, childRig, toddlerRig, infantRig, adultCatRig, adultDogRig, adultLittleDogRig, childCatRig, childDogRig };
-            rigNames = new string[] { "Adult Rig", "Child Rig", "Toddler Rig", "Infant Rig", "Cat Rig", "Dog Rig", "Little Dog Rig", "Kitten Rig", "Puppy Rig" };
+            childHorseRig = GetTS4Rig(Species.Horse, AgeGender.Child);
+            rigsList = new List<RIG> { adultRig, childRig, toddlerRig, infantRig, adultCatRig, adultDogRig, adultLittleDogRig, adultHorseRig, childCatRig, childDogRig,childHorseRig };
+            rigNames = new string[] { "Adult Rig", "Child Rig", "Toddler Rig", "Infant Rig", "Cat Rig", "Dog Rig", "Little Dog Rig", "Horse Rig", "Kitten Rig", "Puppy Rig", "Foal Rig"};
             foreach (RIG rig in rigsList)
             {
                 foreach (RIG.Bone bone in rig.Bones)
@@ -320,6 +324,11 @@ namespace MorphTool
             {
                 if (age == AgeGender.Child) return childDogRig;
                 else return adultLittleDogRig;
+            }
+            else if (species == Species.Horse)
+            {
+                if (age == AgeGender.Child) return childHorseRig;
+                else return adultHorseRig;
             }
             else
             {

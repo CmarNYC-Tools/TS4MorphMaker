@@ -491,6 +491,7 @@ namespace MorphTool
                 Species species;
                 if (bond[0].AllBonesInRig(adultRig)) species = Species.Human;
                 else if (bond[0].AllBonesInRig(adultDogRig)) species = Species.Dog;
+                else if (bond[0].AllBonesInRig(adultHorseRig)) species = Species.Horse;
                 else species = Species.Cat;
                 Form previewForm = new EditMorphPreview(species, AgeGender.Adult | AgeGender.Male, AgeGender.None, SimRegion.BODY, SimSubRegion.None,
                         null, null, null, bond, null);

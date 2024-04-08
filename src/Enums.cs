@@ -28,7 +28,8 @@ namespace MorphTool
         Dog = 2,
         Cat = 3,
         LittleDog = 4,
-        Werewolf = 5
+        Werewolf = 5,
+        Horse = 6
     }
 
     [Flags]

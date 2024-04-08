@@ -464,6 +464,16 @@ namespace MorphTool.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap HorseSkin {
+            get {
+                object obj = ResourceManager.GetObject("HorseSkin", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap FemaleSkinTan {
             get {
                 object obj = ResourceManager.GetObject("FemaleSkinTan", resourceCulture);

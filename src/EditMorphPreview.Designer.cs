@@ -150,7 +150,8 @@
             "Dog",
             "Cat",
             "Little Dog",
-            "Werewolf"});
+            "Werewolf",
+            "Horse"});
             this.Species_listBox.Location = new System.Drawing.Point(10, 49);
             this.Species_listBox.Name = "Species_listBox";
             this.Species_listBox.Size = new System.Drawing.Size(96, 82);
