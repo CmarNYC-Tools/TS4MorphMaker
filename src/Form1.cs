@@ -33,7 +33,7 @@ namespace MorphTool
 {
     public partial class Form1 : Form
     {
-        string version = "4.5.2.0";
+        string version = typeof(Form1).Assembly.GetName().Version.ToString();
         static string Meshfilter = "MS3D or OBJ files (*.ms3d; *.obj)|*.ms3d; *.obj|All files (*.*)|*.*";
         static string OBJfilter = "OBJ files (*.obj)|*.obj|All files (*.*)|*.*";
         static string DMapfilter = "DMap files (*.dmap; *.deformermap)|*.dmap; *.deformermap|All files (*.*)|*.*";

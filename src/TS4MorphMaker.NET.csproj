@@ -1,0 +1,90 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+      <OutputType>WinExe</OutputType>
+      <TargetFramework>net8.0-windows</TargetFramework>
+      <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+      <PlatformTarget>x64</PlatformTarget>
+      <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+      <RootNamespace>MorphTool</RootNamespace>
+      <AssemblyName>TS4MorphMaker</AssemblyName>
+      <UseWindowsForms>true</UseWindowsForms>
+      <UseWPF>true</UseWPF>
+      <SelfContained>false</SelfContained>
+      <GenerateResourceUsePreserializedResources>true</GenerateResourceUsePreserializedResources>
+      <OutputPath>bin\$(Configuration)\</OutputPath>
+      <LangVersion>8.0</LangVersion>
+      <PublisherName>cmarNYC</PublisherName>
+      <ApplicationIcon>iconMorphs.ico</ApplicationIcon>
+      <ApplicationRevision>0</ApplicationRevision>
+      <Version>$(TS4MORPHMAKER_VERSION)</Version>
+      <ApplicationDisplayVersion>$(TS4MORPHMAKER_VERSION)</ApplicationDisplayVersion>
+      <ApplicationVersion>$(TS4MORPHMAKER_VERSION)</ApplicationVersion>
+      <Company></Company>
+      <Product>TS4MorphMaker</Product>
+      <AssemblyVersion>$(TS4MORPHMAKER_VERSION)</AssemblyVersion>
+      <FileVersion>$(TS4MORPHMAKER_VERSION)</FileVersion>
+      <NeutralLanguage>en</NeutralLanguage>
+      <Description></Description>
+      <Copyright>Copyright ©  2017</Copyright>
+  
+      <DefineConstants>$(DefineConstants);NETCORE</DefineConstants>
+    </PropertyGroup>
+    <PropertyGroup>
+      <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+      <DebugType>portable</DebugType>
+      <DebugSymbols>true</DebugSymbols>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+      <DebugType>embedded</DebugType>
+    </PropertyGroup>
+    <ItemGroup>
+      <Reference Include="DDSPanel">
+        <HintPath>$(S4PI_LIB)\DDSPanel.dll</HintPath>
+      </Reference>
+      <Reference Include="s4pi.ImageResource">
+        <HintPath>$(S4PI_LIB)\s4pi.ImageResource.dll</HintPath>
+      </Reference>
+      <Reference Include="s4pi.Interfaces">
+        <HintPath>$(S4PI_LIB)\s4pi.Interfaces.dll</HintPath>
+      </Reference>
+      <Reference Include="s4pi.Package">
+        <HintPath>$(S4PI_LIB)\s4pi.Package.dll</HintPath>
+      </Reference>
+      <Reference Include="s4pi.Settings">
+        <HintPath>$(S4PI_LIB)\s4pi.Settings.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Custom">
+        <HintPath>$(S4PI_LIB)\System.Custom.dll</HintPath>
+      </Reference>
+    </ItemGroup>
+    <ItemGroup>
+      <Content Include="*.grannyrig">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="*.txt">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="*.xml">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="*.package">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="*.dll">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+    </ItemGroup>
+    <ItemGroup>
+      <PackageReference Include="Ookii.Dialogs.Wpf" Version="5.0.1" />
+      <PackageReference Include="System.IO.Compression" Version="4.3.0" />
+      <PackageReference Include="System.Resources.Extensions" Version="5.0.0" />
+      <PackageReference Include="WinForms.DataVisualization" Version="1.9.2" />
+      <PackageReference Include="System.Management" Version="8.0.0" />
+    </ItemGroup>
+    <ItemGroup>
+      <Compile Remove="Form1.designer - Copy.cs"/>
+      <Compile Remove="Previewer.cs"/>
+    </ItemGroup>
+  </Project>

@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.002.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TS4MorphMaker", "src/TS4MorphMaker.csproj", "{3DA4EFAB-2E3D-467B-877C-A38954DD56A5}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TS4MorphMaker.NET", "src/TS4MorphMaker.NET.csproj", "{7653C995-CF72-4677-A6EA-6AE385ACA126}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3DA4EFAB-2E3D-467B-877C-A38954DD56A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3DA4EFAB-2E3D-467B-877C-A38954DD56A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3DA4EFAB-2E3D-467B-877C-A38954DD56A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3DA4EFAB-2E3D-467B-877C-A38954DD56A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7653C995-CF72-4677-A6EA-6AE385ACA126}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7653C995-CF72-4677-A6EA-6AE385ACA126}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7653C995-CF72-4677-A6EA-6AE385ACA126}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7653C995-CF72-4677-A6EA-6AE385ACA126}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6A38CA74-52BF-4F57-AD83-0B36C81EB524}
+	EndGlobalSection
+EndGlobal
