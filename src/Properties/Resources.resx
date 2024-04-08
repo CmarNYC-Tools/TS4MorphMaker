@@ -334,4 +334,61 @@
   <data name="HorseSkin" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\HorseSkin.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="iuHead_lod0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\iuHead_lod0.simgeom;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="iuHead_lod1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\iuHead_lod1.simgeom;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="iuHead_lod2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\iuHead_lod2.simgeom;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="iuHead_lod3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\iuHead_lod3.simgeom;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="iuBodyComplete_lod0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\iuBodyComplete_lod0.simgeom;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="ymwHead_lod0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ymwHead_lod0.simgeom;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="ymwHead_lod1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ymwHead_lod1.simgeom;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="ymwHead_lod2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ymwHead_lod2.simgeom;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="ymwHead_lod3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ymwHead_lod3.simgeom;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="yfwHead_lod0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\yfwHead_lod0.simgeom;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="yfwHead_lod1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\yfwHead_lod1.simgeom;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="yfwHead_lod2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\yfwHead_lod2.simgeom;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="yfwHead_lod3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\yfwHead_lod3.simgeom;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="yfwBodyComplete_lod0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\yfwBodyComplete_lod0.simgeom;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="ymwBodyComplete_lod0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ymwBodyComplete_lod0.simgeom;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="yfWerewolf_shape" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\yfWerewolf_Shape.deformermap;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="yfWerewolf_normals" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\yfWerewolf_Normals.deformermap;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="ymWerewolf_shape" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ymWerewolf_Shape.deformermap;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="ymWerewolf_normals" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ymWerewolf_Normals.deformermap;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
 </root>
