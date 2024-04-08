@@ -62,7 +62,7 @@ namespace MorphTool
             public override string ToString()
             {
                 return (species == Species.Human) ? (age > AgeGender.Child && age <= AgeGender.Elder ? gender.ToString() : age.ToString()) :
-                    (age > AgeGender.Child ? species.ToString() : (species == Species.Cat ? "Kitten" : "Puppy"));
+                    (age > AgeGender.Child ? species.ToString() : (species == Species.Horse? "Foal" : species == Species.Cat ? "Kitten" : "Puppy"));
             }
         }
 
