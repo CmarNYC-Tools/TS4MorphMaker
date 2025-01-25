@@ -2,7 +2,7 @@
     "version": "2.0.0",
     "options": {
         "env": {
-            "TS4MORPHMAKER_VERSION":"4.5.2.1"
+            "TS4MORPHMAKER_VERSION":"4.5.2.2"
         }
     },
     "tasks": [
@@ -10,7 +10,7 @@
             "label": "buildn",
             "options": { "statusbar": {"hide": true}},
             "command": "dotnet",
-            "type": "process",
+            "type": "shell",
             "args": [
                 "build",
                 "${workspaceFolder}/src/TS4MorphMaker.NET.csproj",
@@ -43,7 +43,20 @@
                 "-c:Release"
             ],
             "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "wine 🍷",
+            "command": "wine",
+            "type": "process",
+            "options": {
+                "cwd": "${workspaceFolder}/src/bin/Debug/net8.0-windows/win-x64/"
+            },
+            "dependsOn":[
+                "buildn"
+            ],
+            "args":[
+                "TS4MorphMaker.exe"
+            ]
         }
-    
     ]
 }

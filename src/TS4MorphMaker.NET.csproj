@@ -28,6 +28,7 @@
       <Copyright>Copyright ©  2017</Copyright>
   
       <DefineConstants>$(DefineConstants);NETCORE</DefineConstants>
+      <EnableWindowsTargeting>true</EnableWindowsTargeting>
     </PropertyGroup>
     <PropertyGroup>
       <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
