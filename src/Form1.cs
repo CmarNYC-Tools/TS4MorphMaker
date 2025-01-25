@@ -91,9 +91,26 @@ namespace MorphTool
             try
             {
                 string TS4FilesPath = Properties.Settings.Default.TS4Path;
-                //   string TS4FilesPath = (string)Microsoft.Win32.Registry.GetValue("HKEY_LOCAL_MACHINE\\SOFTWARE\\Wow6432Node\\Maxis\\The Sims 4", "Install Dir", null);
-                string[] paths = Directory.GetFiles(TS4FilesPath, "*Build*.package", SearchOption.AllDirectories);
-                if (paths.Length == 0)
+                var pathRoots = new List<string>() { TS4FilesPath };
+                
+                //Mac places packs in a sub folder outside of the main app
+                const string PackSubFolder = "The Sims 4 Packs";
+                var packs = Path.Combine(Path.GetDirectoryName(TS4FilesPath),PackSubFolder);
+                if(Directory.Exists(packs)) pathRoots.Add(packs);
+                else{
+                    packs = Path.Combine(Path.GetDirectoryName(Path.GetDirectoryName(TS4FilesPath)), PackSubFolder);
+                    if(Directory.Exists(packs)) pathRoots.Add(packs);
+                }
+
+                List<string> paths =  (
+                    from path in pathRoots
+                    from pkgPath in Directory.GetFiles(path, "*.package", SearchOption.AllDirectories)
+                    let fname = Path.GetFileName(pkgPath)
+                    where fname.Contains("Preload") || fname.Contains("Build")
+                    select pkgPath
+                ).ToList();
+  
+                if (paths.Count == 0)
                 {
                     MessageBox.Show("Can't find game packages: can't clone or search game files!");
                 }
