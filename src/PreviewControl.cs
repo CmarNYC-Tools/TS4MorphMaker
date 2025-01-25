@@ -1201,8 +1201,10 @@ namespace MorphTool
             }
             else
             {
-                allMorph.Add(CurrentEarsMorph);
-                allNames.Add("MorphedEars");
+                if(currentSpecies  != Species.Horse){
+                    allMorph.Add(CurrentEarsMorph);
+                    allNames.Add("MorphedEars");
+                }
                 allMorph.Add(CurrentTailMorph);
                 allNames.Add("MorphedTail");
             }

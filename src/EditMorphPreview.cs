@@ -105,14 +105,19 @@ namespace MorphTool
             {
                 AgeGender_listBox.Items.Clear();
                 if (species == Species.Cat) AgeGender_listBox.Items.AddRange(new string[] { "Kitten", "Adult" });
+                else if (species == Species.Horse) AgeGender_listBox.Items.AddRange(new string[] { "Foal", "Adult" });
                 else AgeGender_listBox.Items.AddRange(new string[] { "Puppy", "Adult" });
                 if (isAdult) AgeGender_listBox.SelectedIndex = 1;
                 else AgeGender_listBox.SelectedIndex = 0;
                 Type1_listBox.Items.Clear();
-                Type1_listBox.Items.AddRange(new string[] { "Ears Up", "Ears Down" });
+                Type1_listBox.Items.AddRange(new string[] { "Ears Up" });
+                if(species != Species.Horse){
+                    Type1_listBox.Items.AddRange(new string[] { "Ears Down" });
+                }
                 Type1_listBox.SelectedIndex = subRegion == SimSubRegion.EarsDown ? 1 : 0;
                 Type2_listBox.Items.Clear();
                 if (species == Species.Cat) Type2_listBox.Items.AddRange(new string[] { "Tail Long", "Tail Stub" });
+                else  if (species == Species.Horse) Type2_listBox.Items.AddRange(new string[] { "Tail Long" });
                 else Type2_listBox.Items.AddRange(new string[] { "Tail Long", "Tail Stub", "Tail Ring", "Tail Screw" });
                 int tmp = (int)subRegion - 3;
                 if (tmp < 0) tmp = 0; if (tmp > Type2_listBox.Items.Count - 1) tmp = Type2_listBox.Items.Count - 1;
@@ -161,13 +166,20 @@ namespace MorphTool
             {
                 AgeGender_listBox.Items.Clear();
                 Type1_listBox.Items.Clear();
-                Type1_listBox.Items.AddRange(new string[] { "Ears Up", "Ears Down" });
+                Type1_listBox.Items.AddRange(new string[] { "Ears Up" });
+                if(species != Species.Horse){
+                    Type1_listBox.Items.AddRange(new string[] {  "Ears Down" });
+                }
                 Type1_listBox.SelectedIndex = 0;
                 Type2_listBox.Items.Clear();
                 if (species == Species.Cat)
                 {
                     Type2_listBox.Items.AddRange(new string[] { "Tail Long", "Tail Stub" });
                     AgeGender_listBox.Items.AddRange(new string[] { "Kitten", "Adult" });
+                }else if (species == Species.Horse)
+                {
+                    Type2_listBox.Items.AddRange(new string[] { "Tail Long" });
+                    AgeGender_listBox.Items.AddRange(new string[] { "Foal", "Adult" });
                 }
                 else
                 {
@@ -206,7 +218,7 @@ namespace MorphTool
             {
                 Set_AgeGenderFrame();
             }
-            else
+            else if(currentSpecies != Species.Horse)
             {
                 SwapPetParts();
             }
@@ -218,7 +230,7 @@ namespace MorphTool
             {
                 Set_AgeGenderFrame();
             }
-            else
+            else if(currentSpecies != Species.Horse)
             {
                 SwapPetParts();
             }
@@ -300,8 +312,10 @@ namespace MorphTool
             {
                 CurrentHead = null;
                 CurrentBody = new GEOM(new BinaryReader(new MemoryStream((byte[])rm.GetObject(prefix + "BodyComplete_lod0"))));
-                string earType = Type1_listBox.SelectedIndex == 0 ? "Ears" : "EarsDown";
-                CurrentEars = new GEOM(new BinaryReader(new MemoryStream((byte[])rm.GetObject(prefix + earType + "_lod0"))));
+                if(currentSpecies != Species.Horse){
+                    string earType = Type1_listBox.SelectedIndex == 0 ? "Ears" : "EarsDown";
+                    CurrentEars = new GEOM(new BinaryReader(new MemoryStream((byte[])rm.GetObject(prefix + earType + "_lod0"))));
+                }
                 string[] tailType = new string[] { "Tail", "TailStub", "TailRing", "TailScrew" };
                 CurrentTail = new GEOM(new BinaryReader(new MemoryStream((byte[])rm.GetObject(prefix + tailType[Type2_listBox.SelectedIndex] + "_lod0"))));
                 SaveHead_button.Enabled = false;
@@ -482,9 +496,11 @@ namespace MorphTool
                     Form1.WriteGEOM("Save GEOM of morphed model", allMorph[0]);
                     return;
                 }
-                string[] ears = new string[] { "Ears", "EarsDown" };
-                allMorph.AddRange(Form1.GetMorphedBodyMeshes(rm, prefix, ears, morphShape, morphNormals));
-                allNames.AddRange(ears);
+                if (currentSpecies != Species.Horse){
+                    string[] ears = new string[] { "Ears", "EarsDown" };
+                    allMorph.AddRange(Form1.GetMorphedBodyMeshes(rm, prefix, ears, morphShape, morphNormals));
+                    allNames.AddRange(ears);
+                }
                 string[] tails = (currentSpecies == Species.Cat) ? new string[] { "Tail", "TailStub" } : 
                     new string[] { "Tail", "TailStub", "TailRing", "TailScrew" };
                 allMorph.AddRange(Form1.GetMorphedBodyMeshes(rm, prefix, tails, morphShape, morphNormals));
