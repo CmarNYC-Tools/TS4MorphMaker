@@ -212,6 +212,13 @@ namespace MorphTool
             int previousNumberVectors = 0;
             Vector3 zero = new Vector3();
             int lastIndex = 0;
+            if(baseGeom.Length != morphGeom.Length)
+            {
+                MessageBox.Show("The number of groups in the base mesh and morph mesh do not match.");
+                BGEOwait_label.Visible = false;
+                return;
+
+            }
             for (int i = 0; i < baseGeom.Length; i++)
             {
                 if (baseGeom[i].numberVertices != morphGeom[i].numberVertices)
