@@ -201,7 +201,7 @@ namespace MorphTool
             get
             {
                 bool b = false;
-                if (new string(this.magic) == "GEOM" && this.numVerts > 0 && (this.version == 5 || this.version == 12 || this.version == 13 || this.version == 14) && this.Fcount > 2)
+                if (new string(this.magic) == "GEOM" && this.numVerts > 0 && (this.version == 5 || this.version == 12 || this.version == 13 || this.version == 14 || this.version == 15) && this.Fcount > 2)
                 {
                     b = true;
                     int uvInd = 0;
@@ -1178,6 +1178,39 @@ namespace MorphTool
             return geomList;
         }
 
+        public class GeometryState 
+        {
+            public uint State { get; set; }
+
+            public int StartIndex { get; set; }
+            public int StartFace => StartIndex / 3;
+
+            public int MinVertexIndex { get; set; }
+
+            public int VertexCount { get; set; }
+
+            public int PrimitiveCount { get; set; }
+
+            public void Read(BinaryReader s)
+            {
+                this.State = s.ReadUInt32();
+                this.StartIndex = s.ReadInt32();
+                this.MinVertexIndex = s.ReadInt32();
+                this.VertexCount = s.ReadInt32();
+                this.PrimitiveCount = s.ReadInt32();
+            }
+
+            public void Write(BinaryWriter s)
+            {
+                s.Write(this.State);
+                s.Write(this.StartIndex);
+                s.Write(this.MinVertexIndex);
+                s.Write(this.VertexCount);
+                s.Write(this.PrimitiveCount);
+            }
+
+        }
+        public List<GeometryState> GeometryStates { get; set; } = new();
         public GEOM(BinaryReader br)
         {
             this.ReadFile(br);
@@ -1336,6 +1369,16 @@ namespace MorphTool
                 this.bonehasharray[i] = br.ReadUInt32();
             }
             if (br.BaseStream.Length <= br.BaseStream.Position) return;
+            if (this.version >= 15)
+            {
+                var c = br.ReadInt32();
+                for (int i = 0; i < c; i++)
+                {
+                    var gs = new GeometryState();
+                    gs.Read(br);
+                    this.GeometryStates.Add(gs);
+                }
+            }
             this.numtgi = br.ReadInt32();
             this.meshTGIs = new TGI[this.numtgi];
             for (int i = 0; i < this.numtgi; i++)
@@ -1473,6 +1516,14 @@ namespace MorphTool
             for (int i = 0; i < this.bonehashcount; i++)
             {
                 bw.Write(this.bonehasharray[i]);
+            }
+            if (this.version >= 15)
+            {
+                bw.Write(this.GeometryStates.Count);
+                foreach (var geometryState in this.GeometryStates)
+                {
+                    geometryState.Write(bw);
+                }
             }
             bw.Write(this.numtgi);
             for (int i = 0; i < this.numtgi; i++)
