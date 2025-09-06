@@ -2710,7 +2710,8 @@
             "Vampire",
             "Mermaid",
             "Spellcaster",
-            "Werewolf"});
+            "Werewolf",
+            "Fairy"});
             this.EditHOTC_occult_checkedListBox.Location = new System.Drawing.Point(408, 113);
             this.EditHOTC_occult_checkedListBox.MultiColumn = true;
             this.EditHOTC_occult_checkedListBox.Name = "EditHOTC_occult_checkedListBox";
@@ -3965,7 +3966,8 @@
             "Vampire",
             "Mermaid",
             "Witch",
-            "Werewolf"});
+            "Werewolf",
+            "Fairy"});
             this.EditPreset_tagsOccult_checkedListBox.Location = new System.Drawing.Point(82, 193);
             this.EditPreset_tagsOccult_checkedListBox.Margin = new System.Windows.Forms.Padding(2);
             this.EditPreset_tagsOccult_checkedListBox.Name = "EditPreset_tagsOccult_checkedListBox";

@@ -721,6 +721,7 @@ namespace MorphTool
                 if (f.tagValue == (uint)PresetValueTags.Mermaid) occultTagList.SetItemChecked(3, true);
                 if (f.tagValue == (uint)PresetValueTags.Witch) occultTagList.SetItemChecked(4, true);
                 if (f.tagValue == (uint)PresetValueTags.Werewolf) occultTagList.SetItemChecked(5, true);
+                if (f.tagValue == (uint)PresetValueTags.Fairy) occultTagList.SetItemChecked(6, true);
             }
         }
 
@@ -740,6 +741,7 @@ namespace MorphTool
             if (occultTagList.GetItemChecked(3)) tagList.Add(new CPRE.Tag(PresetCategoryTags.Occult, PresetValueTags.Mermaid, presetVersion));
             if (occultTagList.GetItemChecked(4)) tagList.Add(new CPRE.Tag(PresetCategoryTags.Occult, PresetValueTags.Witch, presetVersion));
             if (occultTagList.GetItemChecked(5)) tagList.Add(new CPRE.Tag(PresetCategoryTags.Occult, PresetValueTags.Werewolf, presetVersion));
+            if (occultTagList.GetItemChecked(5)) tagList.Add(new CPRE.Tag(PresetCategoryTags.Occult, PresetValueTags.Fairy, presetVersion));
             return tagList.ToArray();
         }
 

@@ -232,7 +232,8 @@ namespace MorphTool
             {
                 if (f.tagValue == (uint)PresetValueTags.Human || f.tagValue == (uint)PresetValueTags.Alien ||
                     f.tagValue == (uint)PresetValueTags.Vampire || f.tagValue == (uint)PresetValueTags.Mermaid ||
-                    f.tagValue == (uint)PresetValueTags.Witch || f.tagValue == (uint)PresetValueTags.Werewolf)
+                    f.tagValue == (uint)PresetValueTags.Witch || f.tagValue == (uint)PresetValueTags.Werewolf ||
+                    f.tagValue == (uint)PresetValueTags.Fairy)
                     s += ((PresetValueTags)f.tagValue).ToString() + ", ";
             }
             try
