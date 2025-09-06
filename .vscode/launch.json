@@ -9,7 +9,7 @@
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "buildn",
-            "program": "${workspaceFolder}/src/bin/Debug/net8.0-windows/win-x64/TS4MorphMaker.exe",
+            "program": "${workspaceFolder}/src/bin/Debug/net6.0-windows/win-x64/TS4MorphMaker.exe",
             "args": [],
             "cwd": "${workspaceFolder}",
         },

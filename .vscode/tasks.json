@@ -2,7 +2,7 @@
     "version": "2.0.0",
     "options": {
         "env": {
-            "TS4MORPHMAKER_VERSION":"4.5.2.2"
+            "TS4MORPHMAKER_VERSION":"4.5.2.3"
         }
     },
     "tasks": [
@@ -49,7 +49,7 @@
             "command": "wine",
             "type": "process",
             "options": {
-                "cwd": "${workspaceFolder}/src/bin/Debug/net8.0-windows/win-x64/"
+                "cwd": "${workspaceFolder}/src/bin/Debug/net6.0-windows/win-x64/"
             },
             "dependsOn":[
                 "buildn"

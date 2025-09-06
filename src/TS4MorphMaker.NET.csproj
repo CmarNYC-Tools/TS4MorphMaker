@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
       <OutputType>WinExe</OutputType>
-      <TargetFramework>net8.0-windows</TargetFramework>
+      <TargetFramework>net6.0-windows</TargetFramework>
       <RuntimeIdentifier>win-x64</RuntimeIdentifier>
       <PlatformTarget>x64</PlatformTarget>
       <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -12,7 +12,7 @@
       <SelfContained>false</SelfContained>
       <GenerateResourceUsePreserializedResources>true</GenerateResourceUsePreserializedResources>
       <OutputPath>bin\$(Configuration)\</OutputPath>
-      <LangVersion>8.0</LangVersion>
+      <LangVersion>9.0</LangVersion>
       <PublisherName>cmarNYC</PublisherName>
       <ApplicationIcon>iconMorphs.ico</ApplicationIcon>
       <ApplicationRevision>0</ApplicationRevision>
